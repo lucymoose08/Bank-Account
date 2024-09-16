@@ -1,0 +1,5 @@
+public static void main(String[] args)
+{
+    BankAccount savings = new BankAccount (name:"lpenuel", accNum:"696969", balance:1, pass:"rowie")
+    savings.logIn(username:"lpenuel", pass:"rowie");
+}
