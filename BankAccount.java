@@ -1,4 +1,4 @@
-public Class BankAccount
+public class BankAccount
 {
     private String name;
     private int accountNum;
@@ -19,7 +19,7 @@ public Class BankAccount
     //change val of loggedIn but only if username and password is correct
     public boolean logIn(String name, String password)
     {
-        if (username.equals(this.name)) and (password.equals(this.password))
+        if (name.equals(this.name) && password.equals(this.password))
         {
             this.loggedIn=true;
             return true;
@@ -33,7 +33,7 @@ public Class BankAccount
 
     public void logOut()
     {
-
+        loggedIn=false;
     }
 
     public double getBalance()
@@ -45,6 +45,44 @@ public Class BankAccount
         else
         {
             throw new IllegalStateException("get out ya' thieving bitch");
+        }
+    }
+
+    public double deposit(double amount)
+    {
+        if (loggedIn == true)
+        {
+            this.balance+=amount;
+            return balance;
+        }
+        else
+        {
+            throw new IllegalStateException("I'd gladly steal your money but I bet you'd sue me");
+        }
+    }
+
+    public double withdrawal(double amount)
+    {
+        if (loggedIn == true)
+        {
+            this.balance-=amount;
+            return balance;
+        }
+        else
+        {
+            throw new IllegalStateException("stop trying to steal that poor old lady's money");
+        }
+    }
+
+    public String toString()
+    {
+        if (loggedIn==false)
+        {
+            return "log in to access Account Number " + this.accountNum;
+        }
+        else
+        {
+            return "Account Number: " + this.accountNum + ", Balance: " + this.balance;
         }
     }
 }
